@@ -11,8 +11,7 @@ export const searchProducts = async () => {
       category: product.category,
       price: product.price,
       images: product.images[0],
-    })
-    )
+    }))
   } catch (error) {
     throw new Error('Error', error)
   }
