@@ -42,16 +42,23 @@ function App() {
       <h1>Shopping Card <IoCartOutline/></h1>
       {error && <span style={{ color: 'gray' }}>{error}</span>}
 
-      <select className="form-select" onChange={(e) => handleCategoryChange(e)}>
-        <option selected value={'all'}>All Categories</option>
-        {uniqueCategories.map((category, index) => (
-          <option key={index} value={category}>{category}</option>
-        ))}
-      </select>
+      <div className='filters'>
+        <select className="form-select" onChange={(e) => handleCategoryChange(e)}>
+          <option selected value={'all'}>All Categories</option>
+          {uniqueCategories.map((category, index) => (
+            <option key={index} value={category}>{category}</option>
+          ))}
+        </select>
 
-      <div>
-        <input type="range" min='1' max='130' step='5' onChange={(e) => handlePriceChange(e)}/>
-        <span>${filters.maxPrice}</span>
+        <div>
+          <input 
+            type="range" 
+            min='1' 
+            max='130' 
+            step='5' 
+            onChange={(e) => handlePriceChange(e)}/>
+          <span>${filters.maxPrice}</span>
+        </div>
       </div>
 
       <div>
