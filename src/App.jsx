@@ -2,8 +2,8 @@ import { Products } from './components/Products'
 import { useProducts } from './hooks/useProducts'
 import ReactLoading from 'react-loading';
 import { IoCartOutline } from "react-icons/io5";
-import { FaShoppingBasket } from "react-icons/fa";
 import { useMemo, useState } from 'react';
+import { Cart } from './components/Cart';
 
 function App() {
   const { products, loading, error } = useProducts()
@@ -39,6 +39,7 @@ function App() {
 
   return (
     <>
+      <Cart/>
       <h1>Shopping Card <IoCartOutline/></h1>
       {error && <span style={{ color: 'gray' }}>{error}</span>}
 
@@ -55,7 +56,8 @@ function App() {
             type="range" 
             min='1' 
             max='130' 
-            step='5' 
+            step='5'
+            value={filters.maxPrice}
             onChange={(e) => handlePriceChange(e)}/>
           <span>${filters.maxPrice}</span>
         </div>
