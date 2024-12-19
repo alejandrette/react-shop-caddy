@@ -3,6 +3,7 @@ import { Cart } from './components/Cart';
 import { useFilters } from './hooks/useFilters';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
+import { CartProvider } from './context/cart';
 
 function App() {
   const { products, loading, error } = useProducts()
@@ -10,7 +11,7 @@ function App() {
   const { filters, filteredProducts, uniqueCategories, handleCategoryChange, handlePriceChange } = useFilters(products)
 
   return (
-    <>
+    <CartProvider>
       <Cart/>
       <Header
         filters={filters}
@@ -24,7 +25,7 @@ function App() {
         loading={loading}
         products={filteredProducts}
       />
-    </>
+    </CartProvider>
   )
 }
 

@@ -6,10 +6,11 @@
   right: 0px;
   top: 0px;
   width: 200px;
+  overflow: auto;
 }
 
 .cart img {
-  aspect-ratio: 16/9;
+  
   width: 100%;
 }
 
@@ -38,7 +39,7 @@
   height: 32px;
   justify-content: center;
   padding: 4px;
-  position: absolute;
+  position: fixed;
   right: 8px;
   top: 8px;
   transition: all .3s ease;
